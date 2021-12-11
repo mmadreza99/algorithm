@@ -1,0 +1,2 @@
+# algorithm
+fcfs / RR / SRTF
