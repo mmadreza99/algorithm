@@ -18,17 +18,15 @@ def find_waiting_time(processes, n, wt):
     # Process until all processes gets
     # completed
     while complete != n:
-
-        # Find process with minimum remaining
-        # time among the processes that
-        # arrives till the current time`
+        # Find process with minimum remaining time among the processes that arrives till the current time
         for j in range(n):
-            if ((processes[j][2] <= t) and
-                    (rt[j] < minimum) and rt[j] > 0):
+            # processes[[p0,3,1],[p1,4,2] t =0
+            if (processes[j][2] <= t) and (rt[j] < minimum) and rt[j] > 0:
                 minimum = rt[j]
                 short = j
                 check = True
-        if check == False:
+
+        if not check:
             t += 1
             continue
 
@@ -48,8 +46,7 @@ def find_waiting_time(processes, n, wt):
             complete += 1
             check = False
 
-            # Find finish time of current
-            # process
+            # Find finish time of current process
             fint = t + 1
 
             # Calculate waiting time
@@ -72,8 +69,8 @@ def find_turn_around_time(processes, n, wt, tat):
 # Function to calculate average waiting
 # and turn-around times.
 def find_avg_time(processes, n):
-    wt = [0] * n
-    tat = [0] * n
+    wt = [0] * n   # n = 3 | wt = [0, 0 ,0]
+    tat = [0] * n  # n = 3 | tat = [0, 0 ,0]
 
     # Function to find waiting time
     # of all processes
@@ -100,7 +97,6 @@ def find_avg_time(processes, n):
 
 
 def process_data():
-    print("FIRST COME FIRST SERVE Scheduling")
     n = int(input("Enter number of processes : "))
     proc = []
 
@@ -113,11 +109,10 @@ def process_data():
         temporary.extend([key, burst_time, arrival_time])
         proc.append(temporary)
 
-    print('ProcessData: ', proc)
+    # print('ProcessData: ', proc)
     find_avg_time(proc, n)
 
 
 # Driver code
 if __name__ == "__main__":
     process_data()
-

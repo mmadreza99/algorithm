@@ -1,5 +1,5 @@
 if __name__ == '__main__':
-    print(" Python program for implementation of RR Scheduling")
+    print("Python program for implementation of RR Scheduling")
     total_p_no = int(input("Enter Total Process Number: "))
     total_time = 0
     total_time_counted = 0
